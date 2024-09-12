@@ -87,7 +87,7 @@ function sendMessage() {
     scrollToBottom();
 
     // Отправляем сообщение боту и получаем ответ
-    fetch('http://localhost:5000/api/chat', {
+    fetch('http://207.180.203.88:8001/api', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
