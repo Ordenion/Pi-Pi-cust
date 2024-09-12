@@ -27,7 +27,7 @@ body, html {
 
 .smartphone-frame {
     width: 450px;
-    height: 924px;
+    height: 964px;
     border: none;
     border-radius: 24px;
     background-color: #fff;
@@ -55,24 +55,36 @@ body, html {
 /* === Стили для заголовков ============ */
 /* ===================================== */
 
+.speaker {
+    width: 70px; /* Ширина динамика */
+    height: 8px; /* Высота динамика */
+    background-color: #375a3b; /* Темно-зеленый цвет */
+    border-radius: 4px; /* Скругление концов */
+    position: absolute;
+    top: 15px; /* Расстояние от верхней границы хедера */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование полоски */
+}
+
 .header {
     position: sticky; /* Фиксируем хедер наверху */
     top: 0;
     left: 0;
     width: 100%; /* Хедер занимает всю ширину контейнера */
+    height: 130px;
     z-index: 1000;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     background-color: #49724B;
     color: white;
     box-sizing: border-box;
 }
 
 .header h1 {
-    margin-bottom: 5px;
+    margin-top: 20px;
     font-size: 20px;
 }
 
@@ -82,9 +94,11 @@ body, html {
 }
 
 .location-icon {
-    margin-right: 5px;
-    font-size: 16px;
+    font-size: 22px;
     vertical-align: middle;
+    position: relative;
+    bottom: 2px;
+    color: white;
 }
 
 .back-btn {
@@ -130,11 +144,13 @@ body, html {
     background-color: white;
     font-size: 24px;
     margin-right: 10px;
+    margin-top: 11px;
+    margin-bottom: 10px;
 }
 
 .header .bot-info h1 {
-    margin: 0;
-    font-size: 18px;
+    margin-top: 0;
+    font-size: 20px;
 }
 
 .header .bot-info p.status {
@@ -254,14 +270,6 @@ body, html {
     background-color: #639770;
 }
 
-.location-icon {
-    font-size: 20px;
-    vertical-align: middle;
-    position: relative;
-    bottom: 2px;
-    color: white;
-}
-
 .btn {
     display: block;
     width: 100%;
@@ -281,6 +289,7 @@ body, html {
 .btn:hover {
     background-color: #d6d6d6;
 }
+
 
 .service-grid {
     display: grid;
@@ -339,7 +348,7 @@ body, html {
 }
 
 .near-me-icon {
-    font-size: 18px;
+    font-size: 22px;
     color: white;
     margin-right: 5px;
 }
@@ -718,7 +727,7 @@ h3 {
 #chatbot-container {
     display: none;
     position: relative;
-    height: calc(100% - 90px);
+    height: calc(100% - 140px);
     display: flex;
     flex-direction: column;
     padding: 0;
