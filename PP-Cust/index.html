@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket Porter</title>
+    <!-- Подключение библиотеки Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.0/marked.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-container">
+    <div class="smartphone-frame">
+        <div class="screen">
+
+            <div class="header">
+
+                <div id="default-header">
+                    <button id="back-btn" class="back-btn" onclick="showMainPage()">
+                    <span class="material-icons">arrow_back</span>
+                    </button>
+                    <h1>Pocket Porter</h1>
+                     <p><span class="material-icons location-icon">location_on</span> Euromast Tower, Parkhaven 20</p>
+                    
+                </div>
+
+                <div id="chatbot-header" style="display: none; align-items: center;">
+                <button class="back-btn" onclick="hideChatbot()">
+                    <span class="material-icons">arrow_back</span>
+                </button>
+                <!-- Используем span с эмодзи вместо аватара -->
+                <span class="avatar-emoji">🤖</span>
+                <div class="bot-info">
+                    <h1>Pocket Assistant</h1>
+                    <p class="status">active 24/7</p>
+                </div>
+                </div>
+            </div>
+
+<!----------------------------------------------MAIN PAGE ------------------------------>
+            <div id="main-content">
+
+                <a href="#" id="view-orders-btn" class="btn" onclick="showPage('orders')">View your orders</a>
+
+                <div id="service-buttons">
+                    <div class="service-grid">
+                    <button class="btn service" onclick="showPage('restaurant')">
+                        <img src="kitchen.ico" alt="Restaurant">
+                        <p>Restaurant</p>
+                    </button>
+                    <button class="btn service" onclick="showPage('cleaning')">
+                        <img src="cleaning.ico" alt="Cleaning">
+                        <p>Cleaning</p>
+                    </button>
+                    <button class="btn service" onclick="showPage('taxi')">
+                        <img src="taxi.ico" alt="Taxi">
+                        <p>Taxi</p>
+                    </button>
+                    </div>
+                </div>
+
+                <div class="city-view" id="main-content">
+                <div class="location-container">
+                    <span class="material-icons near-me-icon">location_on</span>
+                    <span class="location-text">Rotterdam</span>
+                </div>
+                <div class="image-overlay">
+                <h2>Welcome! You might want to visit these places</h2>
+                    <button class="blur-button" onclick="showPage('city-page')">Read More</button>
+                </div>
+                </div>
+            
+            </div>
+<!----------------------------------------------ORDERS PAGE ---------------------------->
+            <div class="page" id="orders">
+                <h2>Your Orders</h2>
+                <p>Here you can view your current and past orders.</p>
+            
+                <!-- Order 1 -->
+                <div class="menu-item">
+                    <div class="menu-placeholder"></div>
+                    <div class="order-details">
+                        <span class="item-name">Pizza Margherita</span>
+                        <span class="order-date">Aug 21, 2024 - 7:30 PM</span>
+                    </div>
+                    <span class="item-price">$12.49</span>
+                </div>
+            
+                <!-- Order 2 -->
+                <div class="menu-item">
+                    <div class="menu-placeholder"></div>
+                    <div class="order-details">
+                        <span class="item-name">Caesar Salad</span>
+                        <span class="order-date">Aug 19, 2024 - 1:00 PM</span>
+                    </div>
+                    <span class="item-price">$8.99</span>
+                </div>
+            
+                <!-- Order 3 -->
+                <div class="menu-item">
+                    <div class="menu-placeholder"></div>
+                    <div class="order-details">
+                        <span class="item-name">Coca-Cola</span>
+                        <span class="order-date">Aug 18, 2024 - 5:15 PM</span>
+                    </div>
+                    <span class="item-price">$2.99</span>
+                </div>
+            
+                <!-- Order 4 -->
+                <div class="menu-item">
+                    <div class="menu-placeholder"></div>
+                    <div class="order-details">
+                        <span class="item-name">Grilled Chicken</span>
+                        <span class="order-date">Aug 16, 2024 - 8:45 PM</span>
+                    </div>
+                    <span class="item-price">$15.49</span>
+                </div>
+            </div>
+<!----------------------------------------------RESTAURANT PAGE ------------------------>
+            <div class="page" id="restaurant">
+    <h2>Restaurant Information</h2>
+    <p>Choose what you desire, and we’ll deliver it directly to your room.</p>
+
+    <!-- Category: Snacks -->
+    <div class="filter-container">
+        <button class="filter-button" onclick="filterMenu('all')">All</button>
+        <button class="filter-button" onclick="filterMenu('snacks')">Snacks</button>
+        <button class="filter-button" onclick="filterMenu('dishes')">Dish</button>
+        <button class="filter-button" onclick="filterMenu('drinks')">Drinks</button>
+    </div>
+
+    <h3>Snacks</h3>
+    <div class="menu-item" data-category="snacks">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Fries</span>
+        <span class="item-price">$3.99</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="snacks">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Onion Rings</span>
+        <span class="item-price">$4.99</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="snacks">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Mozzarella Sticks</span>
+        <span class="item-price">$5.99</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <!-- Category: Dish -->
+    <h3>Dish</h3>
+    <div class="menu-item" data-category="dishes">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Burger</span>
+        <span class="item-price">$10.99</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="dishes">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Pizza</span>
+        <span class="item-price">$12.49</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="dishes">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Salad</span>
+        <span class="item-price">$8.99</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <!-- Category: Drinks -->
+    <h3>Drinks</h3>
+    <div class="menu-item" data-category="drinks">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Coca-Cola</span>
+        <span class="item-price">$2.99</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="drinks">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Orange Juice</span>
+        <span class="item-price">$3.49</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="drinks">
+        <div class="menu-placeholder"></div>
+        <span class="item-name">Water</span>
+        <span class="item-price">$1.99</span>
+        <div class="quantity-controls">
+            <button class="minus-btn">-</button>
+            <span class="quantity">0</span>
+            <button class="plus-btn">+</button>
+        </div>
+    </div>
+            </div>
+<!----------------------------------------------СLEANING PAGE -------------------------->
+            <div class="page" id="cleaning">
+    <h2>Cleaning Request</h2>
+    <p>You can request a cleaning service for your room at any time. Select a preferred date and time below.</p>
+
+    <div class="date-selection">
+        <h3>Select Date</h3>
+        <div class="date-buttons">
+            <button class="btn date-btn" onclick="selectDate(this, 'Today')">Today</button>
+            <button class="btn date-btn" onclick="selectDate(this, 'Tomorrow')">Tomorrow</button>
+            <button class="btn date-btn" onclick="selectDate(this, 'Day After Tomorrow')">Day After Tomorrow</button>
+        </div>
+    </div>
+
+    <div class="time-selection">
+        <h3>Select Time</h3>
+        <input type="range" min="0" max="23" value="12" id="time-slider" oninput="updateTimeLabel(this.value)">
+        <p id="time-label">12:00 PM</p>
+    </div>
+
+    <button class="submit-btn" onclick="submitCleaningRequest()">Request Cleaning</button>
+            </div>
+<!----------------------------------------------CITY PAGE ------------------------------>
+            <div class="page" id="city-page">
+    <h2>Discover Rotterdam</h2>
+    
+    <div class="city-page-img-container">
+        <img src="city.jpeg" alt="City View">
+    </div>
+
+    <p>Rotterdam is a vibrant and modern 
+        city known for its unique architecture, 
+        rich culture, and dynamic port. Here are 
+        some top places to visit during your stay:
+    </p>
+
+    <h3>1. Erasmus Bridge</h3>
+    <p>The iconic Erasmus Bridge, also known 
+        as "The Swan," is a symbol of Rotterdam’s 
+        modernity. Its sleek design and stunning 
+        views of the city’s skyline make it a 
+        must-see attraction.
+    </p>
+
+    <h3>2. Markthal</h3>
+    <p>This impressive indoor market hall is not 
+        just a place to enjoy delicious food but 
+        also a work of art. The ceiling of the 
+        Markthal is adorned with the world's 
+        largest artwork, making it a feast for 
+        both your eyes and taste buds.
+    </p>
+
+    <h3>3. Cube Houses</h3>
+    <p>The Cube Houses are a perfect example of 
+        Rotterdam's innovative architectural design. 
+        These tilted cube-shaped buildings are 
+        fascinating to explore and offer a unique 
+        view of urban living.
+    </p>
+
+    <h3>4. Kunsthal Rotterdam</h3>
+    <p>Kunsthal Rotterdam is a unique and innovative
+         museum that hosts a wide range of temporary
+          exhibitions. From classic art to 
+          contemporary designs, photography, and 
+          fashion, the museum offers an eclectic 
+          mix of cultural experiences, making it 
+          a top destination for art lovers.
+        </p>
+
+    <h3>5. Euromast Tower</h3>
+    <p>Standing at 185 meters, the Euromast Tower 
+        offers breathtaking panoramic views of 
+        Rotterdam's skyline. Visitors can dine in 
+        the restaurant located at the top or enjoy 
+        a thrilling abseiling experience for an 
+        unforgettable adventure. It's a perfect 
+        spot to get a 360-degree view of the city.
+    </p>
+            </div>
+<!----------------------------------------------TAXI PAGE ------------------------------>
+            <div class="page" id="taxi">
+    <h2>Order a Taxi</h2>
+    
+    <!-- Taxi Type Selection -->
+    <h3>Taxi Type</h3>
+    <div class="date-buttons">
+        <button class="btn date-btn" onclick="selectTaxiType(this, 'Economy')">Economy</button>
+        <button class="btn date-btn" onclick="selectTaxiType(this, 'Comfort')">Comfort</button>
+        <button class="btn date-btn" onclick="selectTaxiType(this, 'Luxury')">Luxury</button>
+    </div>
+    
+    <!-- Форма для ввода данных -->
+    <div class="taxi-form">
+        <h3>Your Location</h3>
+        <input type="text" placeholder="Enter your current address" class="input-field">
+        
+        <h3>Destination</h3>
+        <input type="text" placeholder="Enter your destination" class="input-field">
+        
+        <h3>Pick-up Time</h3>
+        <select class="input-field">
+            <option value="now">As soon as possible</option>
+            <option value="later">Schedule for later</option>
+        </select>
+
+        <button class="submit-btn">Order Taxi</button>
+    </div>
+            </div>
+<!----------------------------------------------CHATBOT -------------------------------->
+            
+        <div class="page" id="chatbot-container">
+            <div id="chat-box">
+                
+                <div id="chat-box-content"></div>
+                
+                    <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                    </div>
+
+                    <div class="input-container">
+                        <textarea id="user-input" placeholder="Type your message here..." rows="1" oninput="toggleSendButton()"></textarea>
+                            <button id="send-btn" class="send-btn" onclick="sendMessage()" disabled>
+                            <i class="material-icons">arrow_upward</i>
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="showChatbot()" class="chatbot-open-btn" id="chatbot-btn">
+            <span class="material-icons">chat</span>
+        </button>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
