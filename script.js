@@ -27,7 +27,7 @@ function showMainPage() {
         page.classList.remove('active');
     });
     toggleDisplay('back-btn', 'none');
-    toggleDisplay('chatbot-btn', 'block');
+    toggleDisplay('chatbot-btn', 'flex');
     toggleDisplay('chatbot-header', 'none');
     toggleDisplay('default-header', 'block');
     toggleDisplay('chatbot-container', 'none');
