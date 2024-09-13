@@ -87,7 +87,7 @@ function sendMessage() {
     scrollToBottom();
 
     // Отправляем сообщение боту и получаем ответ
-    fetch('https://207.180.203.88/api', {
+    fetch('https://pocketporter.aiprosync.com/api/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -96,9 +96,6 @@ function sendMessage() {
             message: userInput,
             user_id: 'default_user_id'
         }),
-    // Allow cross-origin and self-signed certificates
-        mode: 'cors',
-        credentials: 'omit'
     })
     .then(response => response.json())
     .then(data => {
