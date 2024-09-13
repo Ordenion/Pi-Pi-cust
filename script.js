@@ -96,6 +96,9 @@ function sendMessage() {
             message: userInput,
             user_id: 'default_user_id'
         })
+        // Allow cross-origin and self-signed certificates
+        mode: 'cors',
+        credentials: 'omit'
     })
     .then(response => response.json())
     .then(data => {
